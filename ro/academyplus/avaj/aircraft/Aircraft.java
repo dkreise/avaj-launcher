@@ -6,13 +6,19 @@ public abstract class Aircraft implements Flyable {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
-
-    // private static long idCounter = 0;
+    protected WeatherTower weatherTower;
 
     protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
         this.id = p_id;
         this.name = p_name;
         this.coordinates = p_coordinates;
+    }
+
+    // ????????
+    @Override
+    public void registerTower(WeatherTower tower) {
+        this.weatherTower = tower;
+        tower.register(this);
     }
 
     public long getId() {
