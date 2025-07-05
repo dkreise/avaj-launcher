@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+simulation.txt
 
 # BlueJ files
 *.ctxt
