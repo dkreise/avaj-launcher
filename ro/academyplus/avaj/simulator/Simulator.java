@@ -25,5 +25,8 @@ public class Simulator {
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
         }
+
+        Writer.log("we are done!");
+        Writer.close();
     }
 }
