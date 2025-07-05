@@ -1,5 +1,6 @@
 package ro.academyplus.avaj.simulator;
 
+import ro.academyplus.avaj.aircraft.*;
 import java.io.*;
 
 public class Simulator {
