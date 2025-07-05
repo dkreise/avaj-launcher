@@ -1,6 +1,6 @@
 package ro.academyplus.avaj.weather;
 
-import ro.academyplus.avaj.aircraft.Coordinates;
+import ro.academyplus.avaj.simulator.*;
 
 public class WeatherProvider {
     private String[] weatherTypes = {"Sunny", "Rain", "Foggy", "Snow"};
