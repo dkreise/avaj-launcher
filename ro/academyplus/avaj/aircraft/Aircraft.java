@@ -1,6 +1,7 @@
 package ro.academyplus.avaj.aircraft;
 
 import ro.academyplus.avaj.weather.*;
+import ro.academyplus.avaj.simulator.*;
 
 public abstract class Aircraft implements Flyable {
     protected long id;

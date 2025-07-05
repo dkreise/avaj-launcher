@@ -1,5 +1,7 @@
 package ro.academyplus.avaj.aircraft;
 
+import ro.academyplus.avaj.simulator.*;
+
 public class AircraftFactory {
     private static long id = 0;
 
