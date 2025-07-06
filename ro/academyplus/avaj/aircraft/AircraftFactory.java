@@ -19,4 +19,10 @@ public class AircraftFactory {
                 throw new IllegalArgumentException("Unknown aircraft type: " + p_type);
         }
     }
+
+    public static Flyable newAircraft(String p_type, String p_name, int longitude, int latitude, int height) {
+        Coordinates coordinates = new Coordinates(longitude, latitude, height);
+        
+        return newAircraft(p_type, p_name, coordinates);
+    }
 }

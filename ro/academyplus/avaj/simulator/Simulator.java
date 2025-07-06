@@ -73,8 +73,8 @@ public class Simulator {
             throw new InvalidCoordinateException("Coordinates are in the invalid range.");
         }
 
-        Coordinates coordinates = new Coordinates(longitude, latitude, height);
-        Flyable aircraft = AircraftFactory.newAircraft(type, name, coordinates);
+        // Coordinates coordinates = new Coordinates(longitude, latitude, height);
+        Flyable aircraft = AircraftFactory.newAircraft(type, name, longitude, latitude, height);
         aircrafts.add(aircraft);
     }
 }

@@ -1,6 +1,4 @@
-package ro.academyplus.avaj.simulator;
-
-import ro.academyplus.avaj.aircraft.*;
+package ro.academyplus.avaj.aircraft;
 
 public class Coordinates {
     private int longitude;
