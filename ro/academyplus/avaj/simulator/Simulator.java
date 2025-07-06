@@ -1,6 +1,7 @@
 package ro.academyplus.avaj.simulator;
 
 import ro.academyplus.avaj.aircraft.*;
+import ro.academyplus.avaj.weather.*;
 import ro.academyplus.avaj.exceptions.*;
 import java.io.*;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 
 public class Simulator {
     private static int simulationsNum;
-    private static List<Flyable> aircrafts = new ArrayList<>();
+    private static WeatherTower weatherTower = new WeatherTower();
     
     public static void main(String[] args) {
         if (args.length != 1) {
@@ -58,7 +59,6 @@ public class Simulator {
         }
 
         Writer.log("we are done!");
-        Writer.log("Num of aircrafts: " + aircrafts.size());
         Writer.close();
     }
 
@@ -75,6 +75,7 @@ public class Simulator {
 
         // Coordinates coordinates = new Coordinates(longitude, latitude, height);
         Flyable aircraft = AircraftFactory.newAircraft(type, name, longitude, latitude, height);
-        aircrafts.add(aircraft);
+        // aircrafts.add(aircraft);
+        weatherTower.register(aircraft);
     }
 }

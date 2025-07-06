@@ -12,4 +12,9 @@ public class Helicopter extends Aircraft {
     public void updateConditions() {
         // TODO
     }
+
+    @Override
+    public String toString() {
+        return "Helicopter#" + name + "(" + id + ")";
+    }
 }

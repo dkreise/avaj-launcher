@@ -34,12 +34,12 @@ public abstract class Aircraft implements Flyable {
         return coordinates;
     }
 
-    @Override
-    public String toString() {
-        return "Aircraft{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", coordinates=" + coordinates +
-                '}';
-    }
+    // @Override
+    // public String toString() {
+    //     return "Aircraft{" +
+    //             "id=" + id +
+    //             ", name='" + name + '\'' +
+    //             ", coordinates=" + coordinates +
+    //             '}';
+    // }
 }
