@@ -6,20 +6,37 @@ public class Coordinates {
     private int height;
 
     Coordinates(int p_longitude, int p_latitude, int p_height) {
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.height = height;
+        this.longitude = p_longitude;
+        this.latitude = p_latitude;
+        this.height = p_height;
     }
 
     public int getLongitude() {
-        return longitude;
+        return this.longitude;
     }
 
     public int getLatitude() {
-        return latitude;
+        return this.latitude;
     }
 
     public int getHeight() {
-        return height;
+        return this.height;
+    }
+
+    public void setLongitude(int longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setLatitude(int latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setHeight(int height) {
+        this.height = height > 100 ? 100 : height;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + getLongitude() + ", " + getLatitude() + ", " + getHeight() + ")";
     }
 }

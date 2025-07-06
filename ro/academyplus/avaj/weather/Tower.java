@@ -22,7 +22,10 @@ public class Tower {
     }
 
     void conditionChanged() {
-        for (Flyable aircraft : observers) {
+        // as we can't modify list while iterating through it:
+        List<Flyable> currentObservers = new ArrayList<>(observers);
+
+        for (Flyable aircraft : currentObservers) {
             aircraft.updateConditions();
         }
     }

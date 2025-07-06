@@ -15,7 +15,6 @@ public abstract class Aircraft implements Flyable {
         this.coordinates = p_coordinates;
     }
 
-    // ????????
     @Override
     public void registerTower(WeatherTower tower) {
         this.weatherTower = tower;
@@ -33,13 +32,4 @@ public abstract class Aircraft implements Flyable {
     public Coordinates getCoordinates() {
         return coordinates;
     }
-
-    // @Override
-    // public String toString() {
-    //     return "Aircraft{" +
-    //             "id=" + id +
-    //             ", name='" + name + '\'' +
-    //             ", coordinates=" + coordinates +
-    //             '}';
-    // }
 }

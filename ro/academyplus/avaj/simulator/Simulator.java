@@ -58,6 +58,10 @@ public class Simulator {
             System.out.println("Error: " + e.getMessage());
         }
 
+        for (int i = 0; i < simulationsNum; i++) {
+            weatherTower.changeWeather();
+        }
+
         Writer.log("we are done!");
         Writer.close();
     }
