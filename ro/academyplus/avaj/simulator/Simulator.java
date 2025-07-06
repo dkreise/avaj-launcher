@@ -4,8 +4,6 @@ import ro.academyplus.avaj.aircraft.*;
 import ro.academyplus.avaj.weather.*;
 import ro.academyplus.avaj.exceptions.*;
 import java.io.*;
-import java.util.List;
-import java.util.ArrayList;
 
 public class Simulator {
     private static int simulationsNum;
@@ -34,6 +32,7 @@ public class Simulator {
                 System.out.println("Simulations number: " + simulationsNum);
             }
 
+            /* REGISTRATION LOOP */
             while ((line = reader.readLine()) != null) {
                 cnt++;
                 System.out.println("Aircraft " + cnt + ": " + line);
@@ -46,6 +45,12 @@ public class Simulator {
                 }
                 addAircraft(parts);
             }
+
+            /* SIMULATION LOOP */
+            for (int i = 0; i < simulationsNum; i++) {
+                weatherTower.changeWeather();
+            }
+
         } catch (FileNotFoundException e) {
             System.out.println("Error: File not found - " + filename);
         } catch (IOException e) {
@@ -56,13 +61,12 @@ public class Simulator {
             System.out.println("Error: " + e.getMessage());
         } catch (InvalidCoordinateException e) {
             System.out.println("Error: " + e.getMessage());
+        } catch (InvalidWeatherTypeException e) {
+            System.out.println("Error: " + e.getMessage());
+        } catch (InvalidAircraftTypeException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
-        for (int i = 0; i < simulationsNum; i++) {
-            weatherTower.changeWeather();
-        }
-
-        Writer.log("we are done!");
         Writer.close();
     }
 
@@ -77,10 +81,7 @@ public class Simulator {
             throw new InvalidCoordinateException("Coordinates are in the invalid range.");
         }
 
-        // Coordinates coordinates = new Coordinates(longitude, latitude, height);
         Flyable aircraft = AircraftFactory.newAircraft(type, name, longitude, latitude, height);
-        // aircrafts.add(aircraft);
-        // weatherTower.register(aircraft);
         aircraft.registerTower(weatherTower);
     }
 }

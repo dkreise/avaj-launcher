@@ -2,6 +2,7 @@ package ro.academyplus.avaj.aircraft;
 
 import ro.academyplus.avaj.weather.*;
 import ro.academyplus.avaj.simulator.*;
+import ro.academyplus.avaj.exceptions.*;
 
 public class JetPlane extends Aircraft {
 
@@ -9,13 +10,12 @@ public class JetPlane extends Aircraft {
         super(p_id, p_name, p_coordinates);
     }
 
-    public void updateConditions() {
+    public void updateConditions() throws InvalidWeatherTypeException {
         int longitude = coordinates.getLongitude();
         int latitude = coordinates.getLatitude();
         int height = coordinates.getHeight();
         String weather = weatherTower.getWeather(coordinates);
 
-        // TODO: try catch
         switch (weather) {
             case "SUN":
                 coordinates.setLatitude(latitude + 10);
@@ -35,7 +35,7 @@ public class JetPlane extends Aircraft {
                 Writer.log(this + ": OMG! Winter is coming!");
                 break;
             default:
-                // throw custom exception
+                throw new InvalidWeatherTypeException();
         }
 
         if (coordinates.getHeight() <= 0) {

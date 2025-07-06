@@ -1,11 +1,12 @@
 package ro.academyplus.avaj.aircraft;
 
 import ro.academyplus.avaj.simulator.*;
+import ro.academyplus.avaj.exceptions.*;
 
 public class AircraftFactory {
     private static long id = 0;
 
-    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws InvalidAircraftTypeException {
         id++;
 
         switch (p_type) {
@@ -16,7 +17,7 @@ public class AircraftFactory {
             case "JetPlane":
                 return new JetPlane(id, p_name, p_coordinates);
             default:
-                throw new IllegalArgumentException("Unknown aircraft type: " + p_type);
+                throw new InvalidAircraftTypeException("Unknown aircraft type: " + p_type);
         }
     }
 

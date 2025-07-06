@@ -2,6 +2,7 @@ package ro.academyplus.avaj.aircraft;
 
 import ro.academyplus.avaj.weather.*;
 import ro.academyplus.avaj.simulator.*;
+import ro.academyplus.avaj.exceptions.*;
 
 public class Baloon extends Aircraft {
 
@@ -9,7 +10,7 @@ public class Baloon extends Aircraft {
         super(p_id, p_name, p_coordinates);
     }
 
-    public void updateConditions() {
+    public void updateConditions() throws InvalidWeatherTypeException {
         int longitude = coordinates.getLongitude();
         int latitude = coordinates.getLatitude();
         int height = coordinates.getHeight();
@@ -35,7 +36,7 @@ public class Baloon extends Aircraft {
                 Writer.log(this + ":  It's snowing. We're gonna crash.");
                 break;
             default:
-                // throw custom exception
+                throw new InvalidWeatherTypeException();
         }
 
         if (coordinates.getHeight() <= 0) {
