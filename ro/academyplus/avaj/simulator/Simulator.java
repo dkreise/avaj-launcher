@@ -76,6 +76,7 @@ public class Simulator {
         // Coordinates coordinates = new Coordinates(longitude, latitude, height);
         Flyable aircraft = AircraftFactory.newAircraft(type, name, longitude, latitude, height);
         // aircrafts.add(aircraft);
-        weatherTower.register(aircraft);
+        // weatherTower.register(aircraft);
+        aircraft.registerTower(weatherTower);
     }
 }
