@@ -16,7 +16,9 @@ public class Tower {
     }
 
     public void unregister(Flyable p_flyable) {
+        // maybe also check
         observers.remove(p_flyable);
+        Writer.log("Tower says: " + p_flyable + " unregistered from weather tower.");
     }
 
     void conditionChanged() {

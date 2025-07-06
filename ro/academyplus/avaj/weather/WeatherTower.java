@@ -10,11 +10,11 @@ public class WeatherTower extends Tower {
     }
 
     public String getWeather(Coordinates p_coordinates) {
-        // TODO
-        return "weather";
+        return WeatherProvider.getCurrentWeather(p_coordinates);
     }
 
     public void changeWeather() {
-        // TODO
+        this.conditionChanged();
+        WeatherProvider.updateSeed();
     }
 }
