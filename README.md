@@ -10,7 +10,7 @@ javac @sources.txt
 ### How to Run
 
 ```bash
-java ro.academyplus.avaj.simulator.Simulator scenarios/scenario.txt
+java ro.academyplus.avaj.simulator.Simulator scenarios/<scenario_file>
 ```
 
 ### How to Clean
