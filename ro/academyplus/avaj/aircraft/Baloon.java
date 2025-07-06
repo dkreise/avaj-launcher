@@ -16,7 +16,6 @@ public class Baloon extends Aircraft {
         int height = coordinates.getHeight();
         String weather = weatherTower.getWeather(coordinates);
 
-        // TODO: try catch
         switch (weather) {
             case "SUN":
                 coordinates.setLongitude(longitude + 2);

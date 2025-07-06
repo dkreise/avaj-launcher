@@ -29,13 +29,11 @@ public class Simulator {
                     System.out.println("Error: Negative number of simulations.");
                     return;
                 }
-                System.out.println("Simulations number: " + simulationsNum);
             }
 
             /* REGISTRATION LOOP */
             while ((line = reader.readLine()) != null) {
                 cnt++;
-                System.out.println("Aircraft " + cnt + ": " + line);
 
                 line = line.trim();
                 if (line.isEmpty()) continue;
@@ -70,7 +68,7 @@ public class Simulator {
         Writer.close();
     }
 
-    public static void addAircraft(String[] parts) throws InvalidCoordinateException {
+    public static void addAircraft(String[] parts) throws InvalidCoordinateException, InvalidAircraftTypeException {
         String type = parts[0];
         String name = parts[1];
         int longitude = Integer.parseInt(parts[2]);

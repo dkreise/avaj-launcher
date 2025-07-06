@@ -2,6 +2,7 @@ package ro.academyplus.avaj.weather;
 
 import ro.academyplus.avaj.aircraft.*;
 import ro.academyplus.avaj.simulator.Writer;
+import ro.academyplus.avaj.exceptions.*;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Tower {
         Writer.log("Tower says: " + p_flyable + " unregistered from weather tower.");
     }
 
-    void conditionChanged() {
+    void conditionChanged() throws InvalidWeatherTypeException {
         // as we can't modify list while iterating through it:
         List<Flyable> currentObservers = new ArrayList<>(observers);
 

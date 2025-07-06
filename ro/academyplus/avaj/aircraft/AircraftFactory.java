@@ -21,7 +21,7 @@ public class AircraftFactory {
         }
     }
 
-    public static Flyable newAircraft(String p_type, String p_name, int longitude, int latitude, int height) {
+    public static Flyable newAircraft(String p_type, String p_name, int longitude, int latitude, int height) throws InvalidAircraftTypeException {
         Coordinates coordinates = new Coordinates(longitude, latitude, height);
 
         return newAircraft(p_type, p_name, coordinates);
