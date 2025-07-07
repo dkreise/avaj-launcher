@@ -19,7 +19,6 @@ public class Simulator {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
-            int cnt = 0;
 
             line = reader.readLine();
             if (line != null) {
@@ -33,10 +32,9 @@ public class Simulator {
 
             /* REGISTRATION LOOP */
             while ((line = reader.readLine()) != null) {
-                cnt++;
-
                 line = line.trim();
                 if (line.isEmpty()) continue;
+                
                 String[] parts = line.split(" ");
                 if (parts.length != 5) {
                     throw new InvalidScenarioException("Invalid scenario line: " + line);

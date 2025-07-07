@@ -1,6 +1,5 @@
 package ro.academyplus.avaj.aircraft;
 
-import ro.academyplus.avaj.weather.*;
 import ro.academyplus.avaj.simulator.Writer;
 import ro.academyplus.avaj.exceptions.*;
 
@@ -12,7 +11,6 @@ public class Helicopter extends Aircraft {
 
     public void updateConditions() throws InvalidWeatherTypeException {
         int longitude = coordinates.getLongitude();
-        int latitude = coordinates.getLatitude();
         int height = coordinates.getHeight();
         String weather = weatherTower.getWeather(coordinates);
 

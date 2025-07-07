@@ -1,6 +1,5 @@
 package ro.academyplus.avaj.weather;
 
-import ro.academyplus.avaj.simulator.*;
 import ro.academyplus.avaj.aircraft.*;
 import java.util.Random;
 
