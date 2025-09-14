@@ -19,8 +19,8 @@ public class Simulator {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
-
             line = reader.readLine();
+            
             if (line != null) {
                 line = line.trim();
                 simulationsNum = Integer.parseInt(line);
@@ -33,7 +33,9 @@ public class Simulator {
             /* REGISTRATION LOOP */
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
-                if (line.isEmpty()) continue;
+                if (line.isEmpty()) {
+                    continue
+                };
                 
                 String[] parts = line.split(" ");
                 if (parts.length != 5) {

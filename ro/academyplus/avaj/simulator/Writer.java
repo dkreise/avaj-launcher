@@ -25,6 +25,7 @@ public class Writer {
 
     public static void close() {
         try {
+            writer.newLine();
             writer.close();
         } catch (IOException e) {
             System.out.println("Error closing file.");
