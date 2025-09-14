@@ -11,13 +11,18 @@ public class Tower {
     private List<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable p_flyable) {
-        // maybe check if already present
+        if (observers.contains(p_flyable)) {
+            Writer.log("Tower says: " + p_flyable + " was already registered to weather tower.");
+            return;
+        }
         observers.add(p_flyable);
         Writer.log("Tower says: " + p_flyable + " registered to weather tower.");
     }
 
     public void unregister(Flyable p_flyable) {
-        // maybe also check
+        if (!observers.contains(p_flyable)) {
+            return;
+        }
         observers.remove(p_flyable);
         Writer.log("Tower says: " + p_flyable + " unregistered from weather tower.");
     }
