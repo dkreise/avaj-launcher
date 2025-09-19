@@ -3,9 +3,16 @@ package ro.academyplus.avaj.aircraft;
 import ro.academyplus.avaj.exceptions.*;
 
 public class AircraftFactory {
-    private static long id = 0;
+    private static AircraftFactory aircraftFactory = new AircraftFactory();
+    private long id = 0;
 
-    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws InvalidAircraftTypeException {
+    private AircraftFactory() {}
+
+    public static AircraftFactory getAircraftFactory() {
+        return aircraftFactory;
+    }
+
+    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws InvalidAircraftTypeException {
         id++;
 
         switch (p_type) {
@@ -20,7 +27,7 @@ public class AircraftFactory {
         }
     }
 
-    public static Flyable newAircraft(String p_type, String p_name, int longitude, int latitude, int height) throws InvalidAircraftTypeException {
+    public Flyable newAircraft(String p_type, String p_name, int longitude, int latitude, int height) throws InvalidAircraftTypeException {
         Coordinates coordinates = new Coordinates(longitude, latitude, height);
 
         return newAircraft(p_type, p_name, coordinates);

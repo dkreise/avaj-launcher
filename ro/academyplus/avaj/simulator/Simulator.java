@@ -31,6 +31,7 @@ public class Simulator {
             }
 
             /* REGISTRATION LOOP */
+            AircraftFactory aircraftFactory = AircraftFactory.getAircraftFactory();
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
                 if (line.isEmpty()) {
@@ -41,7 +42,7 @@ public class Simulator {
                 if (parts.length != 5) {
                     throw new InvalidScenarioException("Invalid scenario line: " + line);
                 }
-                addAircraft(parts);
+                addAircraft(parts, aircraftFactory);
             }
 
             /* SIMULATION LOOP */
@@ -68,7 +69,7 @@ public class Simulator {
         Writer.close();
     }
 
-    public static void addAircraft(String[] parts) throws InvalidCoordinateException, InvalidAircraftTypeException {
+    public static void addAircraft(String[] parts, AircraftFactory aircraftFactory) throws InvalidCoordinateException, InvalidAircraftTypeException {
         String type = parts[0];
         String name = parts[1];
         int longitude = Integer.parseInt(parts[2]);
@@ -79,7 +80,7 @@ public class Simulator {
             throw new InvalidCoordinateException("Coordinates are in the invalid range.");
         }
 
-        Flyable aircraft = AircraftFactory.newAircraft(type, name, longitude, latitude, height);
+        Flyable aircraft = aircraftFactory.newAircraft(type, name, longitude, latitude, height);
         aircraft.registerTower(weatherTower);
     }
 }
