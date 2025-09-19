@@ -4,12 +4,17 @@ import ro.academyplus.avaj.aircraft.*;
 import java.util.Random;
 
 public class WeatherProvider {
-    private static String[] weatherTypes = {"SUN", "RAIN", "FOG", "SNOW"};
-    private static int roundSeed = 0;
+    private static WeatherProvider weatherProvider = new WeatherProvider();
+    private String[] weatherTypes = {"SUN", "RAIN", "FOG", "SNOW"};
+    private int roundSeed = 0;
     
     private WeatherProvider() {}
 
-    public static String getCurrentWeather(Coordinates p_coordinates) {
+    public static WeatherProvider getWeatherProvider() {
+        return weatherProvider;
+    }
+
+    public String getCurrentWeather(Coordinates p_coordinates) {
         int longitude = p_coordinates.getLongitude();
         int latitude = p_coordinates.getLatitude();
         int height = p_coordinates.getHeight();
@@ -20,7 +25,7 @@ public class WeatherProvider {
         return weatherTypes[idx];
     }
 
-    public static void updateSeed() {
+    public void updateSeed() {
         roundSeed++;
     }
 }

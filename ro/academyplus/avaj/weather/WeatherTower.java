@@ -10,11 +10,13 @@ public class WeatherTower extends Tower {
     }
 
     public String getWeather(Coordinates p_coordinates) {
-        return WeatherProvider.getCurrentWeather(p_coordinates);
+        WeatherProvider weatherProvider = WeatherProvider.getWeatherProvider();
+        return weatherProvider.getCurrentWeather(p_coordinates);
     }
 
     public void changeWeather() throws InvalidWeatherTypeException {
+        WeatherProvider weatherProvider = WeatherProvider.getWeatherProvider();
         this.conditionChanged();
-        WeatherProvider.updateSeed();
+        weatherProvider.updateSeed();
     }
 }

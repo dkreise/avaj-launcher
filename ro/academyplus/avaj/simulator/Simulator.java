@@ -34,7 +34,7 @@ public class Simulator {
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
                 if (line.isEmpty()) {
-                    continue
+                    continue;
                 };
                 
                 String[] parts = line.split(" ");
